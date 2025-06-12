@@ -11,6 +11,9 @@ const specs = swaggerJsdoc({
 });
 
 router.use('/', swaggerUi.serve);
+router.get('/plain', async function (req, res) {
+  res.status(200).json(specs);
+});
 router.get(
   '/',
   swaggerUi.setup(specs, {
